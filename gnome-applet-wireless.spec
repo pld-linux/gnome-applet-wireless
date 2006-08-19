@@ -1,23 +1,19 @@
 %define		_realname	gwireless_applet
-Summary:	GNOME-based panel applet and management tool to manage wireless network cards 
+Summary:	GNOME-based panel applet and management tool to manage wireless network cards
+Summary(pl):	Aplet panelu GNOME i narzêdzie do zarz±dzania dla bezprzewodowych kart sieciowych
 Name:		gnome-applet-wireless
 Version:	0.8
 Release:	0.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/sourceforge/gwifiapplet/%{_realname}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/gwifiapplet/%{_realname}-%{version}.tar.gz
 # Source0-md5:	c1e51e9cd1877e4df05c019eed761b6c
 URL:		http://gwifiapplet.sourceforge.net/
 BuildRequires:	automake
-BuildRequires:	gnome-desktop-devel >= 2.4.0
 BuildRequires:	gtkxmhtml-devel
 BuildRequires:	gtk+-devel >= 1.2.10
-BuildRequires:	gnome-panel-devel >= 2.4.0
 BuildRequires:	intltool >= 0.21
 BuildRequires:	gnome-libs-devel >= 1.4.2
-BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnomeui-devel >= 2.8.0
-BuildRequires:	libgtop-devel >= 2.10.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Requires(post,postun):	scrollkeeper
@@ -27,6 +23,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This project aims to create a GNOME-based panel applet and management
 tool to manage wireless network cards that support Linux wireless
 extensions.
+
+%description -l pl
+Celem tego projektu jest stworzenie apletu panelu GNOME i narzêdzia do
+zarz±dzania dla bezprzewodowych kart sieciowych obs³uguj±cych
+linuksowe rozszerzenia bezprzewodowe.
 
 %prep
 %setup -q -n %{_realname}-%{version}
@@ -43,7 +44,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	localedir=%{_datadir}/locale
 
-%find_lang wireless-applet --with-gnome --all-name
+%find_lang gwireless_applet --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,10 +55,10 @@ rm -rf $RPM_BUILD_ROOT
 %postun
 %scrollkeeper_update_postun
 
-%files -f netspeed-applet.lang
+%files -f gwireless_applet.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_libdir}/%{_realname}2
+%attr(755,root,root) %{_bindir}/%{_realname}
 %{_libdir}/bonobo/servers/*.server
 %{_omf_dest_dir}/%{_realname}
 %{_pixmapsdir}/%{_realname}
