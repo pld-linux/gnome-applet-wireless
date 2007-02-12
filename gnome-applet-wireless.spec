@@ -1,6 +1,6 @@
 %define		_realname	gwireless_applet
 Summary:	GNOME-based panel applet and management tool to manage wireless network cards
-Summary(pl.UTF-8):   Aplet panelu GNOME i narzędzie do zarządzania dla bezprzewodowych kart sieciowych
+Summary(pl.UTF-8):	Aplet panelu GNOME i narzędzie do zarządzania dla bezprzewodowych kart sieciowych
 Name:		gnome-applet-wireless
 Version:	0.8
 Release:	0.1
